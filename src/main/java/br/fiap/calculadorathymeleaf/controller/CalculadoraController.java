@@ -20,7 +20,7 @@ public class CalculadoraController {
 
 
     @GetMapping("calcular")
-    public double calcular(int a, int b, String operacao, Model model) {
+    public String calcular(int a, int b, String operacao, Model model) {
             model.addAttribute("a",a);
             model.addAttribute("b",b);
             model.addAttribute("operacao",operacao);
@@ -31,5 +31,6 @@ public class CalculadoraController {
             catch(IllegalArgumentException e){
                 model.addAttribute("Erro",e.getMessage());
             }
+            return "index";
     }
 }
